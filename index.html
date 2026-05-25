@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="A letter for Kinza — written with love, honesty, and gratitude.">
+  <title>For Kinza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav__brand" href="#hero">For Kinza</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav__menu" id="nav-menu">
+        <li><a href="#why">Why I Love You</a></li>
+        <li><a href="#today">Today</a></li>
+        <li><a href="#beginning">When We Started</a></li>
+        <li><a href="#unsent">Unsent</a></li>
+        <li><a href="#photos">Photos</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#apology">Apology</a></li>
+        <li><a href="#future">Future</a></li>
+        <li><a href="#songs">Songs</a></li>
+        <li><a href="#closing">Closing</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1. Hero -->
+    <section class="hero section" id="hero" aria-labelledby="hero-title">
+      <div class="hero__content reveal">
+        <p class="hero__eyebrow">For Kinza</p>
+        <h1 class="hero__title" id="hero-title">You became my favorite part of every day.</h1>
+        <p class="hero__subtitle typewriter" data-text="Kinza — not because everything is perfect, but because with you, even the quiet moments feel like they mean something."></p>
+        <a class="hero__scroll" href="#why" aria-label="Scroll to next section">
+          <span>Read on</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- 2. Why I Love You -->
+    <section class="section section--padded" id="why" aria-labelledby="why-title">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__label">Things I never say enough</span>
+          <h2 class="section__title" id="why-title">Why I Love You</h2>
+          <p class="section__intro">Some feelings don't need grand words. They just need to be true.</p>
+        </header>
+
+        <blockquote class="quote-block reveal">
+          <p>"I love how you make ordinary days feel unforgettable."</p>
+        </blockquote>
+
+        <div class="card-grid">
+          <article class="love-card reveal">
+            <h3>How you listen</h3>
+            <p>You don't rush to fix things. You stay — and that makes me feel safe enough to be honest, even when I'm still figuring out what I mean.</p>
+          </article>
+          <article class="love-card reveal">
+            <h3>Small habits</h3>
+            <p>The way you laugh mid-sentence. How you send a voice note when typing feels too cold. The little check-ins that tell me I'm on your mind.</p>
+          </article>
+          <article class="love-card reveal">
+            <h3>Your steadiness</h3>
+            <p>You bring calm without trying to control everything. You remind me that love can be gentle and still be strong.</p>
+          </article>
+          <article class="love-card reveal">
+            <h3>What you changed</h3>
+            <p>I started noticing good things again — mornings, patience, the person I want to become. You didn't fix me. You helped me want better for myself.</p>
+          </article>
+          <article class="love-card reveal">
+            <h3>Your honesty</h3>
+            <p>Even when it's uncomfortable, you speak with care. That kind of truth is rare, and I don't take it for granted.</p>
+          </article>
+          <article class="love-card reveal">
+            <h3>Us, simply</h3>
+            <p>Movie recommendations at midnight. Inside jokes that only we understand. The comfort of knowing there's someone who actually knows me.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Today I Love You Because -->
+    <section class="section section--accent" id="today" aria-labelledby="today-title">
+      <div class="container container--narrow">
+        <header class="section__header reveal">
+          <span class="section__label">Every day, a new reason</span>
+          <h2 class="section__title" id="today-title">Today I Love You Because…</h2>
+        </header>
+        <div class="rotating-text reveal" aria-live="polite">
+          <p class="rotating-text__line" id="rotating-reason"></p>
+        </div>
+
+        <aside class="inside-joke reveal" aria-label="Our inside jokes">
+          <p class="inside-joke__label">If you know, you know</p>
+          <p class="inside-joke__line">"You are sexually Harassing me, Stop touching My Wenie, I Got a 9 Incha."</p>
+          <p class="inside-joke__line">"Whats in there? My Legs? What's else in there?"</p>
+        </aside>
+
+        <ul class="reason-list reveal" aria-label="More reasons">
+          <li>you always know how to calm me when my mind won't slow down.</li>
+          <li>your laugh stays in my head long after we've said goodnight.</li>
+          <li>you say things only Kinza would say — and I love you more for it.</li>
+          <li>you make effort feel natural, not like a performance.</li>
+          <li>you chose us even on the days that weren't easy.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. When We First Started Talking -->
+    <section class="section section--padded" id="beginning" aria-labelledby="beginning-title">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__label">Where it began</span>
+          <h2 class="section__title" id="beginning-title">When We First Started Talking</h2>
+          <p class="section__intro">Looking back, every small moment was already building toward something real.</p>
+        </header>
+
+        <div class="memory-lane">
+          <article class="memory-card memory-card--left reveal">
+            <time datetime="2024-01-15">The first message</time>
+            <div class="chat-bubble chat-bubble--sent">
+              <p>Hey — I don't know why, but I wanted to talk to you tonight.</p>
+            </div>
+            <p class="memory-card__note">I reread that message more times than I'd admit. Something about your reply felt easy, like we'd done this before.</p>
+          </article>
+
+          <article class="memory-card memory-card--right reveal">
+            <time datetime="2024-01-22">The first call</time>
+            <div class="chat-bubble chat-bubble--received">
+              <p>Your voice sounded different than I imagined — warmer. I didn't want to hang up.</p>
+            </div>
+            <p class="memory-card__note">We talked past midnight about nothing important, and somehow it was everything.</p>
+          </article>
+
+          <article class="memory-card memory-card--left reveal">
+            <time datetime="2024-02-03">Late nights</time>
+            <div class="chat-bubble chat-bubble--sent">
+              <p>Are you still awake? I just wanted to hear how your day actually went.</p>
+            </div>
+            <p class="memory-card__note">Those conversations were where the walls came down — slowly, honestly, without rush.</p>
+          </article>
+
+          <article class="memory-card memory-card--right reveal">
+            <time datetime="2024-02-14">Awkward & real</time>
+            <div class="chat-bubble chat-bubble--received">
+              <p>We overthought a simple goodnight once. We laughed about it the next day.</p>
+            </div>
+            <p class="memory-card__note">The awkward moments didn't push us apart. They made us human to each other.</p>
+          </article>
+
+          <article class="memory-card memory-card--center reveal">
+            <time datetime="2024-03-01">Growing closer</time>
+            <p class="memory-card__highlight">I stopped pretending I wasn't attached. You weren't just someone I talked to — you became someone I missed.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Messages I Never Sent -->
+    <section class="section section--padded" id="unsent" aria-labelledby="unsent-title">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__label">Words I held back</span>
+          <h2 class="section__title" id="unsent-title">Messages I Never Sent</h2>
+          <p class="section__intro">Things I felt before I knew how to say them out loud.</p>
+        </header>
+
+        <div class="note-wall">
+          <article class="handwritten-note reveal">
+            <p>I missed you more than I admitted — even on days I acted like I was fine.</p>
+          </article>
+          <article class="handwritten-note handwritten-note--tilt reveal">
+            <p>You mattered to me earlier than I realized. I was just scared to be that vulnerable.</p>
+          </article>
+          <article class="handwritten-note reveal">
+            <p>Sometimes I reread our old conversations — not out of doubt, but because they remind me how far we've come.</p>
+          </article>
+          <article class="handwritten-note handwritten-note--tilt-alt reveal">
+            <p>I wanted to tell you I was proud of you, more than once. I hope you felt it anyway.</p>
+          </article>
+          <article class="handwritten-note reveal">
+            <p>There were nights I almost called just to hear your voice. I should have. I will, more often.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Our Photos -->
+    <section class="section section--padded" id="photos" aria-labelledby="photos-title">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__label">Still moments</span>
+          <h2 class="section__title" id="photos-title">Our Photos</h2>
+          <p class="section__intro">Little frames of us — the kind of memories I return to when I miss you.</p>
+        </header>
+
+        <div class="photo-gallery">
+          <figure class="photo-card reveal">
+            <button type="button" class="photo-card__trigger" data-full="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.31%20PM.jpeg" aria-label="View photo 1">
+              <img src="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.31%20PM.jpeg" alt="Our moment 1" loading="lazy" width="400" height="400">
+            </button>
+          </figure>
+          <figure class="photo-card reveal">
+            <button type="button" class="photo-card__trigger" data-full="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.32%20PM%20%281%29.jpeg" aria-label="View photo 2">
+              <img src="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.32%20PM%20%281%29.jpeg" alt="Our moment 2" loading="lazy" width="400" height="400">
+            </button>
+          </figure>
+          <figure class="photo-card reveal">
+            <button type="button" class="photo-card__trigger" data-full="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.32%20PM.jpeg" aria-label="View photo 3">
+              <img src="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.32%20PM.jpeg" alt="Our moment 3" loading="lazy" width="400" height="400">
+            </button>
+          </figure>
+          <figure class="photo-card reveal">
+            <button type="button" class="photo-card__trigger" data-full="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.33%20PM%20%281%29.jpeg" aria-label="View photo 4">
+              <img src="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.33%20PM%20%281%29.jpeg" alt="Our moment 4" loading="lazy" width="400" height="400">
+            </button>
+          </figure>
+          <figure class="photo-card reveal">
+            <button type="button" class="photo-card__trigger" data-full="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.33%20PM.jpeg" aria-label="View photo 5">
+              <img src="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.33%20PM.jpeg" alt="Our moment 5" loading="lazy" width="400" height="400">
+            </button>
+          </figure>
+          <figure class="photo-card reveal">
+            <button type="button" class="photo-card__trigger" data-full="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.34%20PM%20%281%29.jpeg" aria-label="View photo 6">
+              <img src="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.34%20PM%20%281%29.jpeg" alt="Our moment 6" loading="lazy" width="400" height="400">
+            </button>
+          </figure>
+          <figure class="photo-card reveal">
+            <button type="button" class="photo-card__trigger" data-full="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.34%20PM.jpeg" aria-label="View photo 7">
+              <img src="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.34%20PM.jpeg" alt="Our moment 7" loading="lazy" width="400" height="400">
+            </button>
+          </figure>
+          <figure class="photo-card reveal">
+            <button type="button" class="photo-card__trigger" data-full="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.35%20PM%20%281%29.jpeg" aria-label="View photo 8">
+              <img src="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.35%20PM%20%281%29.jpeg" alt="Our moment 8" loading="lazy" width="400" height="400">
+            </button>
+          </figure>
+          <figure class="photo-card reveal">
+            <button type="button" class="photo-card__trigger" data-full="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.35%20PM%20%282%29.jpeg" aria-label="View photo 9">
+              <img src="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.35%20PM%20%282%29.jpeg" alt="Our moment 9" loading="lazy" width="400" height="400">
+            </button>
+          </figure>
+          <figure class="photo-card reveal">
+            <button type="button" class="photo-card__trigger" data-full="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.35%20PM.jpeg" aria-label="View photo 10">
+              <img src="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.35%20PM.jpeg" alt="Our moment 10" loading="lazy" width="400" height="400">
+            </button>
+          </figure>
+          <figure class="photo-card reveal">
+            <button type="button" class="photo-card__trigger" data-full="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.36%20PM%20%281%29.jpeg" aria-label="View photo 11">
+              <img src="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.36%20PM%20%281%29.jpeg" alt="Our moment 11" loading="lazy" width="400" height="400">
+            </button>
+          </figure>
+          <figure class="photo-card reveal">
+            <button type="button" class="photo-card__trigger" data-full="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.36%20PM.jpeg" aria-label="View photo 12">
+              <img src="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.36%20PM.jpeg" alt="Our moment 12" loading="lazy" width="400" height="400">
+            </button>
+          </figure>
+          <figure class="photo-card reveal">
+            <button type="button" class="photo-card__trigger" data-full="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.37%20PM%20%281%29.jpeg" aria-label="View photo 13">
+              <img src="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.37%20PM%20%281%29.jpeg" alt="Our moment 13" loading="lazy" width="400" height="400">
+            </button>
+          </figure>
+          <figure class="photo-card reveal">
+            <button type="button" class="photo-card__trigger" data-full="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.37%20PM%20%282%29.jpeg" aria-label="View photo 14">
+              <img src="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.37%20PM%20%282%29.jpeg" alt="Our moment 14" loading="lazy" width="400" height="400">
+            </button>
+          </figure>
+          <figure class="photo-card reveal">
+            <button type="button" class="photo-card__trigger" data-full="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.37%20PM.jpeg" aria-label="View photo 15">
+              <img src="media/images/WhatsApp%20Image%202026-05-25%20at%206.32.37%20PM.jpeg" alt="Our moment 15" loading="lazy" width="400" height="400">
+            </button>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Our Videos -->
+    <section class="section section--padded section--accent" id="videos" aria-labelledby="videos-title">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__label">Moving memories</span>
+          <h2 class="section__title" id="videos-title">Our Videos</h2>
+          <p class="section__intro">Moments that move — press play when you're ready. No autoplay, just us.</p>
+        </header>
+
+        <div class="video-gallery">
+          <article class="video-card reveal">
+            <div class="video-card__frame">
+              <video src="media/videos/WhatsApp%20Video%202026-05-25%20at%206.32.33%20PM.mp4" controls playsinline preload="metadata" aria-label="Our video 1"></video>
+            </div>
+          </article>
+          <article class="video-card reveal">
+            <div class="video-card__frame">
+              <video src="media/videos/WhatsApp%20Video%202026-05-25%20at%206.37.59%20PM.mp4" controls playsinline preload="metadata" aria-label="Our video 2"></video>
+            </div>
+          </article>
+          <article class="video-card reveal">
+            <div class="video-card__frame">
+              <video src="media/videos/WhatsApp%20Video%202026-05-25%20at%206.38.00%20PM.mp4" controls playsinline preload="metadata" aria-label="Our video 3"></video>
+            </div>
+          </article>
+          <article class="video-card reveal">
+            <div class="video-card__frame">
+              <video src="media/videos/WhatsApp%20Video%202026-05-25%20at%206.38.01%20PM.mp4" controls playsinline preload="metadata" aria-label="Our video 4"></video>
+            </div>
+          </article>
+          <article class="video-card reveal">
+            <div class="video-card__frame">
+              <video src="media/videos/WhatsApp%20Video%202026-05-25%20at%206.38.12%20PM.mp4" controls playsinline preload="metadata" aria-label="Our video 5"></video>
+            </div>
+          </article>
+          <article class="video-card reveal">
+            <div class="video-card__frame">
+              <video src="media/videos/WhatsApp%20Video%202026-05-25%20at%206.42.08%20PM.mp4" controls playsinline preload="metadata" aria-label="Our video 6"></video>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Apology -->
+    <section class="section section--padded apology-section" id="apology" aria-labelledby="apology-title">
+      <div class="container container--narrow">
+        <header class="section__header reveal">
+          <span class="section__label">With honesty</span>
+          <h2 class="section__title" id="apology-title">What I Needed to Say</h2>
+        </header>
+
+        <div class="apology-card reveal">
+          <div class="apology-card__glow" aria-hidden="true"></div>
+          <div class="apology-block">
+            <h3>I'm sorry for…</h3>
+            <p>The times I was distant when you needed presence. The moments I let pride speak louder than care. Not always answering with the gentleness you deserved.</p>
+          </div>
+          <div class="apology-block">
+            <h3>I understand it made you feel…</h3>
+            <p>Uncertain, unimportant, or like you were carrying more than your share. I see that now — and I don't want to be the reason you feel alone in this.</p>
+          </div>
+          <div class="apology-block">
+            <h3>I'm trying to do better by…</h3>
+            <p>Listening without defending. Showing up consistently, not only when it's convenient. Communicating clearly instead of assuming you'll just know.</p>
+          </div>
+          <div class="apology-block">
+            <h3>You deserve…</h3>
+            <p>Patience, respect, effort, and a love that feels safe — not perfect, but real. You deserve someone who chooses you in the small moments, every day.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Future With You -->
+    <section class="section section--padded" id="future" aria-labelledby="future-title">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__label">What I hope for</span>
+          <h2 class="section__title" id="future-title">Future With You</h2>
+          <p class="section__intro">Not grand promises — just the kind of life I want to build, quietly, together.</p>
+        </header>
+
+        <div class="dream-grid">
+          <article class="dream-card reveal">
+            <span class="dream-card__icon" aria-hidden="true">◐</span>
+            <h3>Movies & slow evenings</h3>
+            <p>Shared blankets, bad subtitles, and debates about which ending was better.</p>
+          </article>
+          <article class="dream-card reveal">
+            <span class="dream-card__icon" aria-hidden="true">✦</span>
+            <h3>Travel, somewhere new</h3>
+            <p>A place neither of us has been — where the only plan is to wander and eat well.</p>
+          </article>
+          <article class="dream-card reveal">
+            <span class="dream-card__icon" aria-hidden="true">☽</span>
+            <h3>Late-night calls</h3>
+            <p>When the world is quiet and it's just your voice and mine, like always.</p>
+          </article>
+          <article class="dream-card reveal">
+            <span class="dream-card__icon" aria-hidden="true">◇</span>
+            <h3>Ordinary Tuesdays</h3>
+            <p>Grocery runs, inside jokes, and coming home to someone who feels like peace.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Our Songs -->
+    <section class="section section--padded" id="songs" aria-labelledby="songs-title">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__label">Soundtrack of us</span>
+          <h2 class="section__title" id="songs-title">Our Songs</h2>
+          <p class="section__intro" id="songs-intro">Top 5 Punjabi hits this week — tap a song to listen on YouTube. For You My Wife.</p>
+        </header>
+
+        <p class="songs-status reveal" id="songs-status" aria-live="polite">Loading today’s songs…</p>
+
+        <div class="audio-playlist" id="dynamic-songs"></div>
+
+        <p class="audio-playlist__hint reveal" id="songs-hint" hidden>Playlist refreshes weekly. Opens YouTube in a new tab — works on phone and desktop.</p>
+      </div>
+    </section>
+
+    <!-- 11. Closing -->
+    <section class="section closing section--padded" id="closing" aria-labelledby="closing-title">
+      <div class="container container--narrow">
+        <div class="closing__content reveal">
+          <h2 class="closing__title" id="closing-title">Always, honestly</h2>
+          <p class="closing__message">Kinza, no matter where life takes us, I'll always be grateful we found each other. You changed how I love — slower, deeper, better. Thank you for staying, for speaking truth, and for being you.</p>
+          <p class="closing__signature">— Yours, always</p>
+          <a class="btn-glow" href="#hero">Back to the beginning</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Full size photo">
+    <button type="button" class="lightbox__close" aria-label="Close">&times;</button>
+    <img class="lightbox__img" src="" alt="">
+  </dialog>
+
+  <footer class="site-footer">
+    <p>Made with care, for Kinza.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+name: Update top Punjabi songs
+
+on:
+  schedule:
+    # Every Monday at 06:00 UTC
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-songs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch top 5 from YouTube playlist
+        run: node scripts/fetch-songs.mjs
+
+      - name: Commit songs.json
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update top 5 Punjabi songs from YouTube playlist"
+          file_pattern: data/songs.json
