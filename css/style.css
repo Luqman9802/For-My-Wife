@@ -1002,6 +1002,18 @@ body.cursor-active .cursor-glow {
   color: var(--accent-beige);
 }
 
+.content-status {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0 auto 1.25rem;
+  max-width: 28rem;
+}
+
+.content-status.is-ready {
+  color: var(--accent-beige);
+}
+
 .audio-playlist.is-loading {
   min-height: 120px;
   display: flex;

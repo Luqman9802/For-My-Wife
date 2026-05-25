@@ -4,9 +4,9 @@ A heartfelt single-page letter — built with HTML, CSS, and JavaScript for [Git
 
 ## Personalize
 
-Edit `index.html` to replace placeholder dates, messages, and song titles with your own story.
+Edit `index.html` for hero, memories, photos, and closing. **Rotating letter sections** live in `data/content.json` (see below).
 
-**Media:** Put photos in `media/images/` and videos in `media/videos/`.
+**Media:** Put photos in `media/images/` and videos in `media/videos/` — these stay static on the page.
 
 **Songs (dynamic):** Top **5** tracks from this [YouTube playlist](https://www.youtube.com/playlist?list=PLdSCVZbBP-Pw6YVFQwzSe5g_MmNgUn11m) are saved to `data/songs.json` via a simple script. **No Spotify. No API keys. No accounts.**
 
@@ -51,13 +51,51 @@ YOUTUBE_PLAYLIST_ID=PLdSCVZbBP-Pw6YVFQwzSe5g_MmNgUn11m TRACK_COUNT=5 node script
 
 No accounts or API keys needed. **Songs open on YouTube** in a new tab (labels block in-page embeds for many music videos — this always works).
 
+## Dynamic letter content (every 4 days)
+
+These sections rotate automatically — **no API keys**, same pattern as songs:
+
+- **Why I Love You** (quote + cards)
+- **Today I Love You Because…** (rotating line + list + inside jokes)
+- **Messages I Never Sent**
+- **What I Needed to Say** (apology)
+- **Future With You**
+
+Content is stored in `data/content.json` as **batches**. The site picks which batch to show from today’s date:
+
+- `rotationDays`: `4` (change to `7` for weekly, etc.)
+- `epoch`: start date for the rotation clock
+- `batches`: array of content sets — add a new object to the array whenever you want fresh words
+
+After all batches have been shown, it cycles back to the first.
+
+### Add a new batch
+
+1. Open `data/content.json`.
+2. Copy the last object inside `"batches": [ ... ]`.
+3. Edit the text (keep the same JSON shape: `why`, `today`, `unsent`, `apology`, `future`).
+4. Commit and push — GitHub Pages will serve the update.
+
+Each section shows a small line like **Set 2 of 3 · May 9 – May 12 · new words every 4 days**.
+
+### Change how often it rotates
+
+```json
+"rotationDays": 4,
+"epoch": "2026-01-01"
+```
+
+Set `rotationDays` to `1` for daily rotation, `7` for weekly, etc.
+
 ## Structure
 
 ```
 ├── index.html
 ├── css/style.css
 ├── js/main.js
-├── data/songs.json          # Auto-generated playlist
+├── data/
+│   ├── content.json         # Letter sections (rotates every 4 days)
+│   └── songs.json           # Auto-generated playlist
 ├── scripts/fetch-songs.mjs  # YouTube playlist → songs.json
 ├── .github/workflows/       # Weekly update job
 └── media/
@@ -70,7 +108,7 @@ No accounts or API keys needed. **Songs open on YouTube** in a new tab (labels b
 - Dark romantic theme with subtle starfield
 - Fixed navigation with smooth scrolling
 - Scroll-reveal fade-in animations
-- Rotating “Today I love you because…” lines
+- Rotating letter sections (every 4 days) + “Today I love you because…” carousel
 - Nostalgic memory sections
 - Mature apology block
 - Fully responsive (mobile menu included)

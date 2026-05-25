@@ -63,36 +63,13 @@
           <p class="section__intro">Some feelings don't need grand words. They just need to be true.</p>
         </header>
 
-        <blockquote class="quote-block reveal">
-          <p>"I love how you make ordinary days feel unforgettable."</p>
+        <p class="content-status reveal" id="why-status" aria-live="polite"></p>
+
+        <blockquote class="quote-block reveal" id="why-quote">
+          <p></p>
         </blockquote>
 
-        <div class="card-grid">
-          <article class="love-card reveal">
-            <h3>How you listen</h3>
-            <p>You don't rush to fix things. You stay — and that makes me feel safe enough to be honest, even when I'm still figuring out what I mean.</p>
-          </article>
-          <article class="love-card reveal">
-            <h3>Small habits</h3>
-            <p>The way you laugh mid-sentence. How you send a voice note when typing feels too cold. The little check-ins that tell me I'm on your mind.</p>
-          </article>
-          <article class="love-card reveal">
-            <h3>Your steadiness</h3>
-            <p>You bring calm without trying to control everything. You remind me that love can be gentle and still be strong.</p>
-          </article>
-          <article class="love-card reveal">
-            <h3>What you changed</h3>
-            <p>I started noticing good things again — mornings, patience, the person I want to become. You didn't fix me. You helped me want better for myself.</p>
-          </article>
-          <article class="love-card reveal">
-            <h3>Your honesty</h3>
-            <p>Even when it's uncomfortable, you speak with care. That kind of truth is rare, and I don't take it for granted.</p>
-          </article>
-          <article class="love-card reveal">
-            <h3>Us, simply</h3>
-            <p>Movie recommendations at midnight. Inside jokes that only we understand. The comfort of knowing there's someone who actually knows me.</p>
-          </article>
-        </div>
+        <div class="card-grid" id="why-cards"></div>
       </div>
     </section>
 
@@ -107,19 +84,13 @@
           <p class="rotating-text__line" id="rotating-reason"></p>
         </div>
 
-        <aside class="inside-joke reveal" aria-label="Our inside jokes">
+        <p class="content-status reveal" id="today-status" aria-live="polite"></p>
+
+        <aside class="inside-joke reveal" id="today-jokes" aria-label="Our inside jokes">
           <p class="inside-joke__label">If you know, you know</p>
-          <p class="inside-joke__line">"You are sexually Harassing me, Stop touching My Wenie, I Got a 9 Incha."</p>
-          <p class="inside-joke__line">"Whats in there? My Legs? What's else in there?"</p>
         </aside>
 
-        <ul class="reason-list reveal" aria-label="More reasons">
-          <li>you always know how to calm me when my mind won't slow down.</li>
-          <li>your laugh stays in my head long after we've said goodnight.</li>
-          <li>you say things only Kinza would say — and I love you more for it.</li>
-          <li>you make effort feel natural, not like a performance.</li>
-          <li>you chose us even on the days that weren't easy.</li>
-        </ul>
+        <ul class="reason-list reveal" id="today-reasons" aria-label="More reasons"></ul>
       </div>
     </section>
 
@@ -182,23 +153,9 @@
           <p class="section__intro">Things I felt before I knew how to say them out loud.</p>
         </header>
 
-        <div class="note-wall">
-          <article class="handwritten-note reveal">
-            <p>I missed you more than I admitted — even on days I acted like I was fine.</p>
-          </article>
-          <article class="handwritten-note handwritten-note--tilt reveal">
-            <p>You mattered to me earlier than I realized. I was just scared to be that vulnerable.</p>
-          </article>
-          <article class="handwritten-note reveal">
-            <p>Sometimes I reread our old conversations — not out of doubt, but because they remind me how far we've come.</p>
-          </article>
-          <article class="handwritten-note handwritten-note--tilt-alt reveal">
-            <p>I wanted to tell you I was proud of you, more than once. I hope you felt it anyway.</p>
-          </article>
-          <article class="handwritten-note reveal">
-            <p>There were nights I almost called just to hear your voice. I should have. I will, more often.</p>
-          </article>
-        </div>
+        <p class="content-status reveal" id="unsent-status" aria-live="polite"></p>
+
+        <div class="note-wall" id="unsent-notes"></div>
       </div>
     </section>
 
@@ -343,24 +300,11 @@
           <h2 class="section__title" id="apology-title">What I Needed to Say</h2>
         </header>
 
-        <div class="apology-card reveal">
+        <p class="content-status reveal" id="apology-status" aria-live="polite"></p>
+
+        <div class="apology-card reveal" id="apology-card">
           <div class="apology-card__glow" aria-hidden="true"></div>
-          <div class="apology-block">
-            <h3>I'm sorry for…</h3>
-            <p>The times I was distant when you needed presence. The moments I let pride speak louder than care. Not always answering with the gentleness you deserved.</p>
-          </div>
-          <div class="apology-block">
-            <h3>I understand it made you feel…</h3>
-            <p>Uncertain, unimportant, or like you were carrying more than your share. I see that now — and I don't want to be the reason you feel alone in this.</p>
-          </div>
-          <div class="apology-block">
-            <h3>I'm trying to do better by…</h3>
-            <p>Listening without defending. Showing up consistently, not only when it's convenient. Communicating clearly instead of assuming you'll just know.</p>
-          </div>
-          <div class="apology-block">
-            <h3>You deserve…</h3>
-            <p>Patience, respect, effort, and a love that feels safe — not perfect, but real. You deserve someone who chooses you in the small moments, every day.</p>
-          </div>
+          <div id="apology-blocks"></div>
         </div>
       </div>
     </section>
@@ -374,28 +318,9 @@
           <p class="section__intro">Not grand promises — just the kind of life I want to build, quietly, together.</p>
         </header>
 
-        <div class="dream-grid">
-          <article class="dream-card reveal">
-            <span class="dream-card__icon" aria-hidden="true">◐</span>
-            <h3>Movies & slow evenings</h3>
-            <p>Shared blankets, bad subtitles, and debates about which ending was better.</p>
-          </article>
-          <article class="dream-card reveal">
-            <span class="dream-card__icon" aria-hidden="true">✦</span>
-            <h3>Travel, somewhere new</h3>
-            <p>A place neither of us has been — where the only plan is to wander and eat well.</p>
-          </article>
-          <article class="dream-card reveal">
-            <span class="dream-card__icon" aria-hidden="true">☽</span>
-            <h3>Late-night calls</h3>
-            <p>When the world is quiet and it's just your voice and mine, like always.</p>
-          </article>
-          <article class="dream-card reveal">
-            <span class="dream-card__icon" aria-hidden="true">◇</span>
-            <h3>Ordinary Tuesdays</h3>
-            <p>Grocery runs, inside jokes, and coming home to someone who feels like peace.</p>
-          </article>
-        </div>
+        <p class="content-status reveal" id="future-status" aria-live="polite"></p>
+
+        <div class="dream-grid" id="future-dreams"></div>
       </div>
     </section>
 

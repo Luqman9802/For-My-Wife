@@ -123,23 +123,32 @@
   /* --------------------------------------------------------------------------
      Scroll reveal
      -------------------------------------------------------------------------- */
+  let revealObserver = null;
+
   function initScrollReveal() {
-    const elements = document.querySelectorAll(".reveal");
-    if (!elements.length) return;
+    if (!revealObserver) {
+      revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.1 }
+      );
+    }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.1 }
-    );
+    observeReveal(document);
+  }
 
-    elements.forEach((el) => observer.observe(el));
+  function observeReveal(root) {
+    if (!revealObserver) return;
+    const scope = root instanceof Element ? root : document;
+    scope.querySelectorAll(".reveal:not(.visible)").forEach((el) => {
+      revealObserver.observe(el);
+    });
   }
 
   /* --------------------------------------------------------------------------
@@ -183,19 +192,16 @@
   /* --------------------------------------------------------------------------
      Rotating "Today I love you because..."
      -------------------------------------------------------------------------- */
-  function initRotatingText() {
-    const line = document.getElementById("rotating-reason");
-    if (!line) return;
+  let rotatingIntervalId = null;
 
-    const reasons = [
-      "Today I love you because you always know how to calm me.",
-      "Today I love you because your laugh stays in my head all day.",
-      "Today I love you because you're Kinza — and that's enough.",
-      "Today I love you because you You are Sexually Harassing me, Stop Touching My Wenie, I Got a 9 Incha.",
-      "Today I love you because you ask what's in there — my legs? what else in there?",
-      "Today I love you because you chose us, even on hard days.",
-      "Today I love you because ordinary moments feel brighter with you.",
-    ];
+  function initRotatingText(reasons) {
+    const line = document.getElementById("rotating-reason");
+    if (!line || !reasons?.length) return;
+
+    if (rotatingIntervalId) {
+      clearInterval(rotatingIntervalId);
+      rotatingIntervalId = null;
+    }
 
     let index = 0;
     line.textContent = reasons[0];
@@ -211,7 +217,7 @@
       }, 500);
     }
 
-    setInterval(cycle, 4500);
+    rotatingIntervalId = setInterval(cycle, 4500);
   }
 
   /* --------------------------------------------------------------------------
@@ -255,6 +261,176 @@
     dialog.addEventListener("cancel", () => {
       document.body.style.overflow = "";
     });
+  }
+
+  /* --------------------------------------------------------------------------
+     Dynamic letter content — rotates every N days (data/content.json)
+     -------------------------------------------------------------------------- */
+  function getContentBatchIndex(config) {
+    const batches = config.batches ?? [];
+    if (!batches.length) return 0;
+
+    const rotationDays = config.rotationDays || 4;
+    const epoch = new Date(config.epoch || "2026-01-01T00:00:00Z").getTime();
+    const msPerDay = 86400000;
+    const daysSinceEpoch = Math.floor((Date.now() - epoch) / msPerDay);
+    const period = Math.floor(daysSinceEpoch / rotationDays);
+
+    return ((period % batches.length) + batches.length) % batches.length;
+  }
+
+  function formatContentPeriod(config, batchIndex) {
+    const rotationDays = config.rotationDays || 4;
+    const epoch = new Date(config.epoch || "2026-01-01T00:00:00Z").getTime();
+    const msPerDay = 86400000;
+    const daysSinceEpoch = Math.floor((Date.now() - epoch) / msPerDay);
+    const period = Math.floor(daysSinceEpoch / rotationDays);
+    const start = new Date(epoch + period * rotationDays * msPerDay);
+    const end = new Date(start.getTime() + rotationDays * msPerDay - 1);
+
+    const fmt = { month: "short", day: "numeric" };
+    const range = `${start.toLocaleDateString(undefined, fmt)} – ${end.toLocaleDateString(undefined, fmt)}`;
+    const total = config.batches?.length ?? 1;
+
+    return { range, batchNumber: batchIndex + 1, total };
+  }
+
+  function setContentStatus(id, message, ready) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = message;
+    el.classList.toggle("is-ready", Boolean(ready));
+  }
+
+  function renderWhy(batch) {
+    const quoteEl = document.querySelector("#why-quote p");
+    const cardsEl = document.getElementById("why-cards");
+    if (!quoteEl || !cardsEl || !batch?.why) return;
+
+    quoteEl.textContent = `"${batch.why.quote}"`;
+
+    cardsEl.innerHTML = (batch.why.cards ?? [])
+      .map(
+        (card) => `
+          <article class="love-card reveal">
+            <h3>${escapeHtml(card.title)}</h3>
+            <p>${escapeHtml(card.body)}</p>
+          </article>`
+      )
+      .join("");
+
+    observeReveal(cardsEl);
+  }
+
+  function renderToday(batch) {
+    const jokesEl = document.getElementById("today-jokes");
+    const reasonsEl = document.getElementById("today-reasons");
+    if (!batch?.today) return;
+
+    if (jokesEl) {
+      const jokes = batch.today.insideJokes ?? [];
+      jokesEl.innerHTML =
+        `<p class="inside-joke__label">If you know, you know</p>` +
+        jokes
+          .map((joke) => `<p class="inside-joke__line">${escapeHtml(joke)}</p>`)
+          .join("");
+      observeReveal(jokesEl);
+    }
+
+    if (reasonsEl) {
+      reasonsEl.innerHTML = (batch.today.reasons ?? [])
+        .map((reason) => `<li>${escapeHtml(reason)}</li>`)
+        .join("");
+      observeReveal(reasonsEl);
+    }
+
+    initRotatingText(batch.today.rotating ?? []);
+  }
+
+  function renderUnsent(batch) {
+    const wall = document.getElementById("unsent-notes");
+    if (!wall) return;
+
+    const tiltClasses = ["", " handwritten-note--tilt", "", " handwritten-note--tilt-alt", ""];
+    const messages = batch.unsent ?? [];
+
+    wall.innerHTML = messages
+      .map(
+        (text, i) => `
+          <article class="handwritten-note${tiltClasses[i % tiltClasses.length] || ""} reveal">
+            <p>${escapeHtml(text)}</p>
+          </article>`
+      )
+      .join("");
+
+    observeReveal(wall);
+  }
+
+  function renderApology(batch) {
+    const container = document.getElementById("apology-blocks");
+    if (!container) return;
+
+    container.innerHTML = (batch.apology ?? [])
+      .map(
+        (block) => `
+          <div class="apology-block reveal">
+            <h3>${escapeHtml(block.title)}</h3>
+            <p>${escapeHtml(block.body)}</p>
+          </div>`
+      )
+      .join("");
+
+    observeReveal(container);
+  }
+
+  function renderFuture(batch) {
+    const grid = document.getElementById("future-dreams");
+    if (!grid) return;
+
+    grid.innerHTML = (batch.future ?? [])
+      .map(
+        (dream) => `
+          <article class="dream-card reveal">
+            <span class="dream-card__icon" aria-hidden="true">${escapeHtml(dream.icon || "✦")}</span>
+            <h3>${escapeHtml(dream.title)}</h3>
+            <p>${escapeHtml(dream.body)}</p>
+          </article>`
+      )
+      .join("");
+
+    observeReveal(grid);
+  }
+
+  async function loadDynamicContent() {
+    const statusIds = ["why-status", "today-status", "unsent-status", "apology-status", "future-status"];
+
+    try {
+      const res = await fetch(`data/content.json?t=${Date.now()}`);
+      if (!res.ok) throw new Error("Could not load content");
+
+      const config = await res.json();
+      const batches = config.batches ?? [];
+      if (!batches.length) throw new Error("No content batches");
+
+      const index = getContentBatchIndex(config);
+      const batch = batches[index];
+      const { range, batchNumber, total } = formatContentPeriod(config, index);
+      const rotationDays = config.rotationDays || 4;
+
+      const statusMsg = `Set ${batchNumber} of ${total} · ${range} · new words every ${rotationDays} days`;
+
+      renderWhy(batch);
+      renderToday(batch);
+      renderUnsent(batch);
+      renderApology(batch);
+      renderFuture(batch);
+
+      statusIds.forEach((id) => setContentStatus(id, statusMsg, true));
+    } catch {
+      statusIds.forEach((id) =>
+        setContentStatus(id, "Letter content not loaded — check data/content.json", false)
+      );
+    }
   }
 
   /* --------------------------------------------------------------------------
@@ -408,17 +584,18 @@
   /* --------------------------------------------------------------------------
      Init
      -------------------------------------------------------------------------- */
-  function init() {
+  async function init() {
     initStars();
     initCursorGlow();
     initNav();
     initScrollReveal();
     initTypewriter();
-    initRotatingText();
     initLightbox();
     initVideos();
-    loadDynamicSongs();
     initSmoothAnchors();
+
+    await loadDynamicContent();
+    loadDynamicSongs();
   }
 
   if (document.readyState === "loading") {
