@@ -7,6 +7,26 @@
   "use strict";
 
   /* --------------------------------------------------------------------------
+     Visitor Counter
+     -------------------------------------------------------------------------- */
+  function initVisitorCounter() {
+    const counterNumber = document.getElementById("counter-number");
+    if (!counterNumber) return;
+
+    const STORAGE_KEY = "visitor_count";
+    let count = localStorage.getItem(STORAGE_KEY);
+
+    if (count === null) {
+      count = 1;
+    } else {
+      count = parseInt(count, 10) + 1;
+    }
+
+    localStorage.setItem(STORAGE_KEY, count);
+    counterNumber.textContent = count;
+  }
+
+  /* --------------------------------------------------------------------------
      Starfield canvas
      -------------------------------------------------------------------------- */
   function initStars() {
@@ -532,7 +552,7 @@
       container.classList.remove("is-loading");
       container.innerHTML = `
         <p class="audio-playlist__empty reveal visible">
-          Songs aren’t ready yet. Run <code>node scripts/fetch-songs.mjs</code> once (see README), then refresh.
+          Songs aren't ready yet. Run <code>node scripts/fetch-songs.mjs</code> once (see README), then refresh.
         </p>`;
       status.textContent = "Playlist not available yet.";
       status.classList.add("is-error");
@@ -585,6 +605,7 @@
      Init
      -------------------------------------------------------------------------- */
   async function init() {
+    initVisitorCounter();
     initStars();
     initCursorGlow();
     initNav();
