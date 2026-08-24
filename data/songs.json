@@ -1,29 +1,36 @@
 {
-  "updated": "2026-08-17T07:05:09.558Z",
+  "updated": "2026-08-24T07:08:18.377Z",
   "source": "youtube",
   "playlistName": "TOP 50 PUNJABI SONGS 2026 (THIS WEEK)",
   "playlistId": "PLdSCVZbBP-Pw6YVFQwzSe5g_MmNgUn11m",
   "playlistUrl": "https://www.youtube.com/playlist?list=PLdSCVZbBP-Pw6YVFQwzSe5g_MmNgUn11m",
   "tracks": [
     {
-      "title": "Cartel (Official Music Video) Cheema Y | Gur Sidhu",
+      "title": "Kath Lagda - Navaan Sandhu ft Dhanda Nyoliwala ( Official Music Video )",
+      "artist": "Navaan Sandhu",
+      "youtubeId": "nMozMETeCyw",
+      "albumArt": "https://i.ytimg.com/vi/nMozMETeCyw/mqdefault.jpg",
+      "note": "Tap to listen on YouTube."
+    },
+    {
+      "title": "LOW FADE (Music Video) KARAN AUJLA",
+      "artist": "Karan Aujla",
+      "youtubeId": "3j7bhOvW6jw",
+      "albumArt": "https://i.ytimg.com/vi/3j7bhOvW6jw/mqdefault.jpg",
+      "note": "Tap to listen on YouTube."
+    },
+    {
+      "title": "Jackpot (Official Video) Cheema Y | Gur Sidhu",
       "artist": "Brown Town Music",
-      "youtubeId": "i0RJTOFwcgk",
-      "albumArt": "https://i.ytimg.com/vi/i0RJTOFwcgk/mqdefault.jpg",
+      "youtubeId": "yM5APO87aNU",
+      "albumArt": "https://i.ytimg.com/vi/yM5APO87aNU/mqdefault.jpg",
       "note": "Tap to listen on YouTube."
     },
     {
-      "title": "Shubh - Moves (360° Music Video)",
-      "artist": "SHUBH",
-      "youtubeId": "tlkb3cLfaOQ",
-      "albumArt": "https://i.ytimg.com/vi/tlkb3cLfaOQ/mqdefault.jpg",
-      "note": "Tap to listen on YouTube."
-    },
-    {
-      "title": "5-7 (Music Video) Karan Aujla | Mxrci | Alankriitaa Sahai | Rehaan Records | Punjabi Songs 2026",
-      "artist": "Rehaan Records",
-      "youtubeId": "x9RC77Oc-0Q",
-      "albumArt": "https://i.ytimg.com/vi/x9RC77Oc-0Q/mqdefault.jpg",
+      "title": "Headliner | Navaan Sandhu | Haakam ( Official Video ) Shimmy Shimmy",
+      "artist": "Navaan Sandhu",
+      "youtubeId": "GE6w7DRyqcM",
+      "albumArt": "https://i.ytimg.com/vi/GE6w7DRyqcM/mqdefault.jpg",
       "note": "Tap to listen on YouTube."
     },
     {
@@ -31,13 +38,6 @@
       "artist": "Brown Town Music",
       "youtubeId": "fHE2rqtF_n8",
       "albumArt": "https://i.ytimg.com/vi/fHE2rqtF_n8/mqdefault.jpg",
-      "note": "Tap to listen on YouTube."
-    },
-    {
-      "title": "EYES ON ME (MUSIC VIDEO) SIDHU MOOSE WALA  |  THE KIDD",
-      "artist": "Sidhu Moose Wala",
-      "youtubeId": "lJZ8wWCnwow",
-      "albumArt": "https://i.ytimg.com/vi/lJZ8wWCnwow/mqdefault.jpg",
       "note": "Tap to listen on YouTube."
     }
   ]
